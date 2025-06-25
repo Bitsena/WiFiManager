@@ -1,0 +1,21 @@
+{
+  "name": "WiFiManager",
+  "version": "2.0.18",
+  "keywords": "wifi,wi-fi,esp,esp8266,esp32,espressif8266,espressif32,nodemcu,wemos,arduino",
+  "description": "Gerenciador de configuração via WiFi para placas ESP",
+  "authors": [
+    {
+      "name": "JUNIOR VOPJ",
+      "url": "https://github.com/juniorVOPJ"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juniorVOPJ/WiFiManager.git"
+  },
+  "frameworks": "arduino",
+  "platforms": [
+    "espressif8266",
+    "espressif32"
+  ]
+}
