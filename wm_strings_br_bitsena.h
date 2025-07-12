@@ -56,7 +56,6 @@ const char *const HTTP_PORTAL_MENU[] PROGMEM = {
 const char HTTP_PORTAL_OPTIONS[] PROGMEM =
 	"<form action='/wifi' method='get'><button>WiFi e Bitcoin</button></form><br/>\n"
 	"<form action='/info' method='get'><button>Informações</button></form><br/>\n"
-	"<div style='text-align:center;'><a href='http://" + WiFi.localIP().toString() + ":8080' style='display:block;background-color:" BITSENA_YELLOW ";color:" BITSENA_BLACK ";line-height:2.4rem;font-size:1.2rem;width:100%;border-radius:.3rem;font-weight:bold;text-decoration:none;padding:5px;box-sizing:border-box;'>Painel de Controle</a></div><br/>\n"
 	"<form action='/restart' method='get'><button>Reiniciar</button></form><br/>\n"
 	"<hr><br/>\n"
 	"<div style='text-align:center;margin-bottom:15px;'>"
