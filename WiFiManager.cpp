@@ -1535,23 +1535,14 @@ void WiFiManager::handleRoot()
 #endif
   if (captivePortal())
     return; // If captive portal redirect instead of displaying the page
-  handleRequest();
-  String page = getHTTPHead(_title, FPSTR(C_root)); // @token options @todo replace options with title
-  String str = FPSTR(HTTP_ROOT_MAIN);               // @todo custom title
-  str.replace(FPSTR(T_t), _title);
-  str.replace(FPSTR(T_v), configPortalActive ? _apName : (getWiFiHostname() + " - " + WiFi.localIP().toString())); // use ip if ap is not active for heading @todo use hostname?
-  page += str;
-  page += FPSTR(HTTP_PORTAL_OPTIONS);
-  // page += getMenuOut();
-  reportStatus(page);
-  page += getHTTPEnd();
 
-  HTTPSend(page);
+  // Redirecionar diretamente para a página de WiFi em vez de mostrar o menu principal
+  server->sendHeader("Location", "/wifi", true);
+  server->send(302, "text/plain", "");
+
+  // Precarregar o scan WiFi se estiver habilitado
   if (_preloadwifiscan)
     WiFi_scanNetworks(_scancachetime, true); // preload wifiscan throttled, async
-  // @todo buggy, captive portals make a query on every page load, causing this to run every time in addition to the real page load
-  // I dont understand why, when you are already in the captive portal, I guess they want to know that its still up and not done or gone
-  // if we can detect these and ignore them that would be great, since they come from the captive portal redirect maybe there is a refferer
 }
 
 /**
